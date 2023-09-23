@@ -1,0 +1,16 @@
+<link rel="icon" href="https://homeweb2-rmir.vercel.app/favicon.ico">
+    <title>重複文字削除</title>
+    <input type="text" id="inputText" placeholder="テキストを入力">
+    <button onclick="removeDuplicates()">重複文字削除</button>
+    <p id="result"></p>
+    <script>
+        function removeDuplicates() {
+            const inputText = document.getElementById("inputText").value;
+            const uniqueText = removeDuplicateCharacters(inputText);
+            document.getElementById("result").textContent = uniqueText;}
+        function removeDuplicateCharacters(inputString) {
+            const charArray = inputString.split('');
+            const uniqueCharArray = charArray.filter((char, index, self) => {
+                return self.indexOf(char) === index;});
+            return uniqueCharArray.join('');}
+    </script>
